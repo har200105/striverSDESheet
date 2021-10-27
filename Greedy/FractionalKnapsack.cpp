@@ -15,13 +15,16 @@ double fractionalKnapsack(int W, Item arr[], int n)
  
     
     for (int i = 0; i < n; i++) {
-       
+        // If the weight of current item and weight already in knapsack is less
+        // than equal to knapsack capacity, push it to the knapsack
         if (curWeight + arr[i].weight <= W) {
             curWeight += arr[i].weight;
             finalvalue += arr[i].value;
         }
  
-
+        //else add the a part of the current wait which can be included in
+        //knapsack
+        
         else {
             int remain = W - curWeight;
             finalvalue += (arr[i].value / (double)arr[i].weight) * (double)remain;
